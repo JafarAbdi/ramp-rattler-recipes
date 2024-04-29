@@ -1,0 +1,5 @@
+# Instructions
+
+To build all the conda packages run `pixi run build`
+
+To upload the packages to the channel `pixi run upload --api-key YOUR_API_KEY XXX.conda YYY.conda ...'

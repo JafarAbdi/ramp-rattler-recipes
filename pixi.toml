@@ -8,6 +8,7 @@ platforms = ["linux-64"]
 
 [tasks]
 build = "rattler-build build --recipe-dir ."
+upload = "rattler-build upload prefix --channel robot-models "
 
 [dependencies]
 rattler-build = ">=0.15.0,<0.16"
