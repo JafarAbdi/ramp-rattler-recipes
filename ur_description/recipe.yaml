@@ -1,0 +1,52 @@
+context:
+  version: "2.1.4"
+  build_number: 1
+
+package:
+  name: ur_description
+  version: ${{ version }}
+
+source:
+  git: https://github.com/ros2-gbp/ur_description-release.git
+  tag: release/humble/ur_description/${{ version }}-${{ build_number }}
+  patches:
+    - delete_ament.patch
+
+build:
+  number: ${{ build_number }}
+  script: |
+    cmake ${CMAKE_ARGS} -GNinja -DBUILD_TESTS=OFF \
+          -DCMAKE_INSTALL_PREFIX=$PREFIX \
+          $SRC_DIR
+    ninja install
+
+requirements:
+  build:
+    - ${{ compiler('cxx') }}
+    - cmake
+    - ninja
+  # host:
+  #   - xtl >=0.7,<0.8
+  # run:
+  #   - xtl >=0.7,<0.8
+  # run_constraints:
+  #   - xsimd >=8.0.3,<10
+
+# tests:
+#   - package_contents:
+#       include:
+#         - xtensor/xarray.hpp
+#       files:
+#         - share/cmake/xtensor/xtensorConfig.cmake
+#         - share/cmake/xtensor/xtensorConfigVersion.cmake
+
+about:
+  homepage: https://github.com/UniversalRobots/Universal_Robots_ROS2_Description.git
+  summary: TODO
+  description: TODO
+  documentation: https://github.com/UniversalRobots/Universal_Robots_ROS2_Description.git
+  repository: https://github.com/UniversalRobots/Universal_Robots_ROS2_Description.git
+
+extra:
+  recipe-maintainers:
+    - some-maintainer
