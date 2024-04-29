@@ -1,0 +1,27 @@
+context:
+  version: "4.54.1"
+  build_number: 1
+
+package:
+  name: realsense2_description
+  version: ${{ version }}
+
+source:
+  git: https://github.com/IntelRealSense/realsense-ros-release.git
+  tag: release/humble/realsense2_description/${{ version }}-${{ build_number }}
+  patches:
+    - delete_ament.patch
+
+build:
+  number: ${{ build_number }}
+  script: |
+    cmake ${CMAKE_ARGS} -GNinja -DBUILD_TESTS=OFF \
+          -DCMAKE_INSTALL_PREFIX=$PREFIX \
+          $SRC_DIR
+    ninja install
+
+requirements:
+  build:
+    - ${{ compiler('cxx') }}
+    - cmake
+    - ninja

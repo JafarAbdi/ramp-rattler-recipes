@@ -1,0 +1,19 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 30c04d9..d0b3af9 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -15,8 +15,6 @@
+ cmake_minimum_required(VERSION 3.5)
+ project(realsense2_description)
+ 
+-find_package(ament_cmake REQUIRED)
+-
+ # Install files
+ install(DIRECTORY 
+         launch 
+@@ -24,5 +22,3 @@ install(DIRECTORY
+         rviz 
+         urdf
+         DESTINATION share/${PROJECT_NAME})
+-
+-ament_package()
