@@ -1,0 +1,20 @@
+diff --git a/robotiq_description/CMakeLists.txt b/robotiq_description/CMakeLists.txt
+index 6ba826b..a117bbc 100644
+--- a/robotiq_description/CMakeLists.txt
++++ b/robotiq_description/CMakeLists.txt
+@@ -5,9 +5,6 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+   add_compile_options(-Wall -Wextra -Wpedantic)
+ endif()
+ 
+-# find dependencies
+-find_package(ament_cmake REQUIRED)
+-
+ install(
+   DIRECTORY
+     urdf
+@@ -17,5 +14,3 @@ install(
+   DESTINATION
+     share/${PROJECT_NAME}
+ )
+-
+-ament_package()
