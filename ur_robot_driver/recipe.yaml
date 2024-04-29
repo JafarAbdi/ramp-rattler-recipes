@@ -1,0 +1,27 @@
+context:
+  version: "2.2.11"
+  build_number: 1
+
+package:
+  name: ur_robot_driver
+  version: ${{ version }}
+
+source:
+  git: https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git
+  tag: release/humble/ur_robot_driver/${{ version }}-${{ build_number }}
+  patches:
+    - delete_ament.patch
+
+build:
+  number: ${{ build_number }}
+  script: |
+    cmake ${CMAKE_ARGS} -GNinja -DBUILD_TESTS=OFF \
+          -DCMAKE_INSTALL_PREFIX=$PREFIX \
+          $SRC_DIR
+    ninja install
+
+requirements:
+  build:
+    - ${{ compiler('cxx') }}
+    - cmake
+    - ninja
