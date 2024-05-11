@@ -1,0 +1,27 @@
+context:
+  version: "100.0.0"
+  build_number: 1
+
+package:
+  name: kortex_description
+  version: ${{ version }}
+
+source:
+  git: https://github.com/JafarAbdi/ros2_kortex.git
+  tag: ${{ version }}
+  patches:
+    - delete_ament.patch
+
+build:
+  number: ${{ build_number }}
+  script: |
+    cmake ${CMAKE_ARGS} -GNinja -DBUILD_TESTS=OFF \
+          -DCMAKE_INSTALL_PREFIX=$PREFIX \
+          $SRC_DIR/kortex_description
+    ninja install
+
+requirements:
+  build:
+    - ${{ compiler('cxx') }}
+    - cmake
+    - ninja
