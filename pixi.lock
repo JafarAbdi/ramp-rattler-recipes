@@ -1,4 +1,4 @@
-version: 4
+version: 5
 environments:
   default:
     channels:
@@ -13,6 +13,9 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-ng-13.2.0-h95c4c6d_6.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/openssl-3.2.1-hd590300_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-build-0.15.0-h614bb76_0.conda
+      osx-arm64:
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libcxx-18.1.8-h167917d_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.15.0-h2b8f702_0.conda
 packages:
 - kind: conda
   name: _libgcc_mutex
@@ -54,6 +57,20 @@ packages:
   license: ISC
   size: 155432
   timestamp: 1706843687645
+- kind: conda
+  name: libcxx
+  version: 18.1.8
+  build: h167917d_0
+  subdir: osx-arm64
+  url: https://conda.anaconda.org/conda-forge/osx-arm64/libcxx-18.1.8-h167917d_0.conda
+  sha256: a598062f2d1522fc3727c16620fbc2bc913c1069342671428a92fcf4eb02ec12
+  md5: c891c2eeabd7d67fbc38e012cc6045d6
+  depends:
+  - __osx >=11.0
+  license: Apache-2.0 WITH LLVM-exception
+  license_family: Apache
+  size: 1219441
+  timestamp: 1720589623297
 - kind: conda
   name: libgcc-ng
   version: 13.2.0
@@ -118,6 +135,22 @@ packages:
   license_family: Apache
   size: 2865379
   timestamp: 1710793235846
+- kind: conda
+  name: rattler-build
+  version: 0.15.0
+  build: h2b8f702_0
+  subdir: osx-arm64
+  url: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.15.0-h2b8f702_0.conda
+  sha256: 4fd077a49b920ba15fc9446471fb1edddcf9c638eb77f2a504fe25f2424aa7a2
+  md5: 5f1437b3e04e7b9b140d87364d3f892d
+  depends:
+  - libcxx >=16
+  constrains:
+  - __osx >=11.0
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 7583997
+  timestamp: 1713391566597
 - kind: conda
   name: rattler-build
   version: 0.15.0
