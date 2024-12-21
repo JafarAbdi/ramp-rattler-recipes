@@ -1,5 +1,5 @@
 diff --git a/robotiq_description/CMakeLists.txt b/robotiq_description/CMakeLists.txt
-index 6ba826b..a117bbc 100644
+index e908b35..0047aae 100644
 --- a/robotiq_description/CMakeLists.txt
 +++ b/robotiq_description/CMakeLists.txt
 @@ -5,9 +5,6 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -11,8 +11,8 @@ index 6ba826b..a117bbc 100644
 -
  install(
    DIRECTORY
-     urdf
-@@ -17,5 +14,3 @@ install(
+     config
+@@ -18,5 +15,3 @@ install(
    DESTINATION
      share/${PROJECT_NAME}
  )

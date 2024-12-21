@@ -1,15 +1,17 @@
 context:
-  version: "100.0.0"
+  # Latest version upstream is 0.0.1
+  version: "0.0.2"
 
 package:
   name: robotiq_description
   version: ${{ version }}
 
 source:
-  git: https://github.com/JafarAbdi/ros2_robotiq_gripper.git
-  tag: ${{ version }}
+  git: https://github.com/PickNikRobotics/ros2_robotiq_gripper.git
+  rev: main
   patches:
     - delete_ament.patch
+    - continuous_to_revolute.patch
 
 build:
   number: 1

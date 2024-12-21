@@ -1,5 +1,5 @@
 context:
-  version: "100.0.0"
+  version: "0.2.2"
   build_number: 1
 
 package:
@@ -7,8 +7,8 @@ package:
   version: ${{ version }}
 
 source:
-  git: https://github.com/JafarAbdi/ros2_kortex.git
-  tag: ${{ version }}
+  git: https://github.com/Kinovarobotics/ros2_kortex.git
+  rev: 97a0e7c9a2b7970f8de5830919e2fe0d7eea3bf6
   patches:
     - delete_ament.patch
 
